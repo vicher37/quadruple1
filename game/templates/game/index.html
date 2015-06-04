@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.js"></script>
+    <script src="../../static/game/angular-dragdrop.min.js"></script>
+    <script src="https://fb.me/react-0.13.3.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../static/game/index.css">
+    <script src="../../static/game/index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Quadruple 1</title>
+</head>
+<body>
+
+    <script type="text/javascript" src='../../static/game/move.min.js'></script>
+
+<div class="container-fluid">
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <div class="row">
+            <div class="text-center">
+                <h1>Quadruple 1</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-center" id="status">
+                <h4>You first!</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-2" id="yes-button">
+                <button onclick="yes()" class="btn-success">
+                    Yes! Let me do it again!
+                </button>
+            </div>
+            <div class="col-xs-2" id="no-button">
+                <button onclick="no()" class="btn-danger">
+                    No thanks, I've got better things to do.
+                </button>
+            </div>
+            <div class="col-xs-4"></div>
+        </div>
+
+        <h2 class="comp_text text-center">Computer</h2>
+
+        <div class="computer row">
+            <div class="col-xs-2 col-sm-4"></div>
+
+            <div class="computer1 col-xs-4 col-sm-2">
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-8">
+                        <span id="computer1" class="btn btn-primary offset2" ondrop="drop(event)" ondragover="allowDrop(event)">[[ base ]]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="computer2 col-xs-4 col-sm-2">
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-8">
+                        <span id="computer2" class="btn btn-primary" ondrop="drop(event)" ondragover="allowDrop(event)">[[ base ]]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-2 col-sm-4"></div>
+        </div>
+
+        <div class="row">
+            <h2 class="me_text text-center">Me</h2>
+        </div>
+
+        <div class="me row">
+            <div class="col-xs-2 col-sm-4"></div>
+
+            <div class="me1 col-xs-4 col-sm-2">
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-8">
+                        <span id="me1" class="btn btn-primary" draggable="true" ondragstart="drag(event)">[[ base ]]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="me2 col-xs-4 col-sm-2">
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-8">
+                        <span id="me2" class="btn btn-primary" draggable="true" ondragstart="drag(event)">[[ base ]]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-2 col-sm-4"></div>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

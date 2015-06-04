@@ -1,0 +1,52 @@
+/*
+.computer {
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    color: red;
+
+}
+.computer1 {
+    position: relative;
+    left: 30%;
+}
+.computer2 {
+    position: relative;
+    left: 60%;
+    top: -34px;
+}
+.me {
+    position: absolute;
+    left:40%;
+    top: 50%;
+}
+.me1 {
+    position: relative;
+    left: 30%;
+}
+.me2 {
+    position: relative;
+    left: 60%;
+    top: -34px;
+}
+*/
+
+/* The starting CSS styles for the enter animation */
+.fade.ng-enter {
+  transition:2.0s linear all;
+  opacity:0;
+}
+
+/* The ending CSS styles for the enter animation */
+.fade.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+#status {
+    font-family: 'Roboto', sans-serif;
+
+}
+
+#yes-button, #no-button {
+    display: none;
+}
