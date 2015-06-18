@@ -30,6 +30,7 @@
     top: -34px;
 }
 */
+body { padding-bottom: 70px; }
 
 /* The starting CSS styles for the enter animation */
 .fade.ng-enter {
@@ -50,3 +51,8 @@
 #yes-button, #no-button {
     display: none;
 }
+
+#blah {
+    color: white;
+}
+

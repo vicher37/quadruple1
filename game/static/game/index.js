@@ -26,7 +26,7 @@ function drop(ev) {
     var data = parseInt(ev.dataTransfer.getData("text")) + parseInt(ev.target.innerText);
     console.log('data = ', data);
     if (data == 10) {
-        document.getElementById("status").innerText = "You won! Congratulations! Start over again?";
+        document.getElementById("status").innerHTML = "<h4>You won! Congratulations! Start over again?</h4>";
         document.getElementById("yes-button").style.display = "inline";
         document.getElementById("no-button").style.display = "inline";
         document.getElementById(dragged_node).innerText = 0;
@@ -34,12 +34,12 @@ function drop(ev) {
     }
     else if (data > 10) {
         document.getElementById(dragged_node).innerText = data - 10;
-        document.getElementById("status").innerText = "Computer: 'I am making a move!'";
+        document.getElementById("status").innerHTML = "<h4>Computer: 'I am making a move!'</h4>";
         setTimeout(function(){ comp_move(); }, 1000);
     }
     else {
         document.getElementById(dragged_node).innerText = data;
-        document.getElementById("status").innerText = "Computer: 'I am making a move!'";
+        document.getElementById("status").innerHTML = "<h4>Computer: 'I am making a move!'</h4>";
         setTimeout(function(){ comp_move(); }, 1000);
     }
     //ev.target.innerText = data;
@@ -61,12 +61,12 @@ function comp_move() {
     var i;
     var j;
     var other_comp;
+    var status;
     if (mode == 'hard') {
         console.log('entered hard mode if condition');
         // calculate one step ahead
         for (var i = 0; i < me_list.length; i++) {
             for (var j = 0; j < comp_list.length; j++) {
-
                 if (parseInt(document.getElementById(me_list[i]).innerText) + parseInt(document.getElementById(comp_list[j]).innerText) == 10) {
                     rand_me = document.getElementById(me);
                     rand_comp = document.getElementById(comp);
@@ -84,6 +84,8 @@ function comp_move() {
                     console.log('one step gets to 10')
                     rand_me = document.getElementById(me_list[i]);
                     rand_comp = document.getElementById(comp_list[j]);
+                    status = 'done';
+                    console.log('status is done')
                 }
             }
         }
@@ -91,60 +93,62 @@ function comp_move() {
         //console.log('me_list', me_list);
         //TODO: fix the problem of only iterating once for every move
         // solution: initialize i and j before the for loop!! otherwise they would memorize the value
-        for (i = 0; i < me_list.length; i++) {
-            for (j = 0; j < comp_list.length; j++) {
-                // check two steps for random comp and me nodes
-                console.log('me_list', me_list);
-                console.log(me_list[i]);
-                console.log(comp_list[j]);
-                var comp_next_state = parseInt(document.getElementById(me_list[i]).innerText) + parseInt(document.getElementById(comp_list[j]).innerText);
-                console.log('comp_next_state', comp_next_state)
-                // if the renewed comp num + me1 node will add to 10
-                if ((comp_next_state + parseInt(document.getElementById('me1').innerText)) % 10 == 0) {
-                    console.log('the renewed comp num + me1 node will add to 10')
-                    if ((comp_next_state + parseInt(document.getElementById('me2').innerText)) % 10 != 0 && j != 1) {
-                        // check one step for comp and the other me node
-                        console.log('renewed comp + me2 does not add to 10 and me2 did not contribute to comp_next_state, so select me2')
-                        //todo: if comp_next_state is caused by me2, and comp + me1 = 10, do not add to me1 since it gives me1 opportunity!
-                        rand_me = document.getElementById('me2');
-                        rand_comp = document.getElementById(comp_list[j]);
-                    }
-                    else {
-                        // if comp and the other me node will add to 10, we have to switch to the other comp node
-                        console.log('renewed comp + me2 add to 10, have to switch to the other comp node')
-                        other_comp = comp_list[Math.abs(j - 1)]; //returns 0 if comp_index is 1, returns 1 if comp_index is 0
-                        if (check(other_comp, 'me1') == true) {
-                            console.log('other_comp + me1 = 10, select me2')
+        // TODO: add copyright, change text layout, delete all console outputs on production
+        if (status != 'done') {
+            for (i = 0; i < me_list.length; i++) {
+                for (j = 0; j < comp_list.length; j++) {
+                    // check two steps for random comp and me nodes
+                    console.log(me_list[i], document.getElementById(me_list[i]).innerText);
+                    console.log(comp_list[j], document.getElementById(comp_list[j]).innerText);
+                    var comp_next_state = parseInt(document.getElementById(me_list[i]).innerText) + parseInt(document.getElementById(comp_list[j]).innerText);
+                    console.log('comp_next_state', comp_next_state)
+                    // if the renewed comp num + me1 node will add to 10
+                    if ((comp_next_state + parseInt(document.getElementById('me1').innerText)) % 10 == 0) {
+                        console.log('the renewed comp num + me1 node will add to 10')
+                        if (((comp_next_state + parseInt(document.getElementById('me2').innerText)) % 10 != 0) && (i != 1)) {
+                            // check one step for comp and the other me node
+                            console.log('renewed comp + me2 does not add to 10 and me2 did not contribute to comp_next_state, so select me2')
+                            //todo: if comp_next_state is caused by me2, and comp + me1 = 10, do not add to me1 since it gives me1 opportunity!
                             rand_me = document.getElementById('me2');
+                            rand_comp = document.getElementById(comp_list[j]);
+                        }
+                        else if ((comp_next_state + parseInt(document.getElementById('me2').innerText)) % 10 == 0) {
+                            // if comp and the other me node will add to 10, we have to switch to the other comp node
+                            console.log('renewed comp + me2 add to 10, have to switch to the other comp node')
+                            other_comp = comp_list[Math.abs(j - 1)]; //returns 0 if comp_index is 1, returns 1 if comp_index is 0
+                            if (check(other_comp, 'me1') == true) {
+                                console.log('other_comp + me1 = 10, select me2')
+                                rand_me = document.getElementById('me2');
+                            }
+                            else {
+                                console.log('other_comp + me1 != 10, select me1')
+                                rand_me = document.getElementById('me1');
+                            }
+                            rand_comp = document.getElementById(other_comp);
+                        }
+                    }
+                    else if ((comp_next_state + parseInt(document.getElementById('me2').innerText)) % 10 == 0) {
+                        console.log('the renewed comp num + me2 node will add to 10')
+                        if (((comp_next_state + parseInt(document.getElementById('me1').innerText)) % 10 != 0) && (i != 0)) {
+                            // check one step for comp and the other me node
+                            console.log('renewed comp + me1 does not add to 10 and me1  did not contribute to comp_next_state, so select me1')
+                            rand_me = document.getElementById('me1');
+                            rand_comp = document.getElementById(comp_list[j]);
                         }
                         else {
-                            console.log('other_comp + me1 != 10, select me1')
-                            rand_me = document.getElementById('me1');
+                            // if comp and the other me node will add to 10, we have to switch to the other comp node
+                            console.log('renewed comp + me1 add to 10, have to switch to the other comp node')
+                            other_comp = comp_list[Math.abs(j - 1)]; //returns 0 if comp_index is 1, returns 1 if comp_index is 0
+                            if (check(other_comp, 'me1') == true) {
+                                console.log('other_comp + me1 = 10, select me2')
+                                rand_me = document.getElementById('me2');
+                            }
+                            else {
+                                console.log('other_comp + me1 != 10, select me1')
+                                rand_me = document.getElementById('me1');
+                            }
+                            rand_comp = document.getElementById(other_comp);
                         }
-                        rand_comp = document.getElementById(comp_list[j]);
-                    }
-                }
-                else if ((comp_next_state + parseInt(document.getElementById('me2').innerText)) % 10 == 0) {
-                    console.log('the renewed comp num + me2 node will add to 10')
-                    if ((comp_next_state + parseInt(document.getElementById('me1').innerText)) % 10 != 0) {
-                        // check one step for comp and the other me node
-                        console.log('renewed comp + me1 does not add to 10, so select me1')
-                        rand_me = document.getElementById('me1');
-                        rand_comp = document.getElementById(comp_list[j]);
-                    }
-                    else {
-                        // if comp and the other me node will add to 10, we have to switch to the other comp node
-                        console.log('renewed comp + me1 add to 10, have to switch to the other comp node')
-                        other_comp = comp_list[Maths.abs(j - 1)]; //returns 0 if comp_index is 1, returns 1 if comp_index is 0
-                        if (check(other_comp, 'me1') == true) {
-                            console.log('other_comp + me1 = 10, select me2')
-                            rand_me = document.getElementById('me2');
-                        }
-                        else {
-                            console.log('other_comp + me1 != 10, select me1')
-                            rand_me = document.getElementById('me1');
-                        }
-                        rand_comp = document.getElementById(comp_list[j]);
                     }
                 }
             }
@@ -176,7 +180,7 @@ function comp_move() {
     rand_comp.innerText = comp_data;
 
     if (comp_data == 10) {
-        setTimeout(function(){ document.getElementById("status").innerText = "Computer won! Wanna try again to beat the computer?"; }, 1000);
+        setTimeout(function(){ document.getElementById("status").innerHTML = "<h4>Computer won! Wanna try again to beat the computer?</h4>"; }, 1000);
         document.getElementById("yes-button").style.display = "inline";
         document.getElementById("no-button").style.display = "inline";
         rand_comp.innerText = 0;
@@ -184,11 +188,11 @@ function comp_move() {
     }
     else if (comp_data > 10) {
         rand_comp.innerText = comp_data - 10;
-        setTimeout(function(){ document.getElementById("status").innerText = "Your turn!"; }, 1000);
+        setTimeout(function(){ document.getElementById("status").innerHTML = "<h4>Your turn!</h4>"; }, 1000);
     }
     else {
         rand_comp.innerText = comp_data;
-        setTimeout(function(){ document.getElementById("status").innerText = "Your turn!"; }, 1000);
+        setTimeout(function(){ document.getElementById("status").innerHTML = "<h4>Your turn!</h4>"; }, 1000);
     }
 
 
@@ -210,11 +214,12 @@ function yes() {
     document.getElementById('me2').innerText = 1;
     document.getElementById('computer1').innerText = 1;
     document.getElementById('computer2').innerText = 1;
-    setTimeout(function(){ document.getElementById("status").innerText = "Your turn!"; }, 1000);
+    mode = 'easy';
+    setTimeout(function(){ document.getElementById("status").innerHTML = "<h4>Your turn!</h4>"; }, 1000);
 }
 
 function no() {
-    document.getElementById("status").innerText = "Till next time!";
+    document.getElementById("status").innerHTML = "<h4>Till next time!</h4>";
 }
 
 function easy() {

@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="813aaa95-94b3-4131-b27c-d61e56caf49f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/static/game/index.css" afterPath="$PROJECT_DIR$/game/static/game/index.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/templates/game/index.html" afterPath="$PROJECT_DIR$/game/templates/game/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/static/game/index.js" afterPath="$PROJECT_DIR$/game/static/game/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/quadruple1.iml" afterPath="$PROJECT_DIR$/.idea/quadruple1.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="quadruple1.iws" />
@@ -53,28 +52,28 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game/templates/game/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="2055">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state vertical-scroll-proportion="-6.509804" vertical-offset="1663" max-vertical-offset="2190">
+              <caret line="133" column="61" selection-start-line="133" selection-start-column="61" selection-end-line="133" selection-end-column="61" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game/static/game/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6315789" vertical-offset="1527" max-vertical-offset="3615">
-              <caret line="125" column="17" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
+            <state vertical-scroll-proportion="-12.074074" vertical-offset="214" max-vertical-offset="3690">
+              <caret line="36" column="95" selection-start-line="36" selection-start-column="95" selection-end-line="36" selection-end-column="95" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/game/static/game/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="870">
-              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.8442907" vertical-offset="382" max-vertical-offset="960">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -104,10 +103,10 @@
         <option value="$PROJECT_DIR$/game/static/game/angular-dragdrop.js" />
         <option value="$PROJECT_DIR$/log.txt" />
         <option value="$PROJECT_DIR$/game/templates/game/angular-dragdrop.js" />
-        <option value="$PROJECT_DIR$/game/static/game/index.css" />
         <option value="$PROJECT_DIR$/quadruple1/urls.py" />
-        <option value="$PROJECT_DIR$/game/templates/game/index.html" />
         <option value="$PROJECT_DIR$/game/static/game/index.js" />
+        <option value="$PROJECT_DIR$/game/templates/game/index.html" />
+        <option value="$PROJECT_DIR$/game/static/game/index.css" />
       </list>
     </option>
   </component>
@@ -873,26 +872,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game/static/game/index.css">
+    <entry file="file://$PROJECT_DIR$/game/static/game/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="870">
-          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        <state vertical-scroll-proportion="-12.074074" vertical-offset="214" max-vertical-offset="3690">
+          <caret line="36" column="95" selection-start-line="36" selection-start-column="95" selection-end-line="36" selection-end-column="95" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/game/templates/game/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="2055">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state vertical-scroll-proportion="-6.509804" vertical-offset="1663" max-vertical-offset="2190">
+          <caret line="133" column="61" selection-start-line="133" selection-start-column="61" selection-end-line="133" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game/static/game/index.js">
+    <entry file="file://$PROJECT_DIR$/game/static/game/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6315789" vertical-offset="1527" max-vertical-offset="3615">
-          <caret line="125" column="17" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.8442907" vertical-offset="382" max-vertical-offset="960">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding />
         </state>
       </provider>
